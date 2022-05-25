@@ -344,7 +344,7 @@ function execute_benchmarks!(job::BenchmarkJob, juliapath, whichbuild::Symbol)
         run(setenv(`git reset --hard --quiet origin/$(branchname)`, dir=BaseBenchmarks))
     end
 
-    run(setenv(`sudo -n -u $(cfg.user) -- $(setenv(juliacmd, nothing)) -e 'using Pkg; Pkg.instantiate(); Pkg.status()'`; dir=builddir))
+    run(setenv(`sudo -n -u $(cfg.user) -- $(setenv(juliacmd, nothing, dir="")) -e 'using Pkg; Pkg.instantiate(); Pkg.status()'`; dir=builddir))
 
     cset = abspath("cset/bin/cset")
     # The following code sets up a CPU shield, then spins up a new julia process on the
