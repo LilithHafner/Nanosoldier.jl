@@ -4,7 +4,7 @@ set -euv -o pipefail
 HERE=`realpath $(dirname $0)`
 cd "$HERE/.."
 
-VERSION=1.6.6
+VERSION=1.6.7
 
 MAJOR=`echo $VERSION | cut -d . -f 1`
 MINOR=`echo $VERSION | cut -d . -f 2`
@@ -68,4 +68,4 @@ echo "  cp bin/run_base_ci.jl .."
 echo "  chgrp nanosoldier ../run_base_ci.jl"
 echo "  chmod 660 ../run_base_ci.jl"
 echo "  \${EDITOR:-vim} ../run_base_ci.jl"
-echo "  sudo -u nanosoldier nohup ./run_base_ci"
+echo "  ./run_base_ci"
